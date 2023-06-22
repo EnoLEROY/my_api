@@ -2,13 +2,16 @@ class ListingsController < ApplicationController
   before_action :set_listing, only: %i[index show]
 
   def index
+    render json: @listings
   end
 
   def show
     @listing = Listing.find(params[:id])
+    render json: @listing
   end
 
   def create
+    raise
     @listing = Listing.new(params_listing)
     @listing.save
   end
